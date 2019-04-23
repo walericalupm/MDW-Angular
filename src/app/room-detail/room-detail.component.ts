@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomDetailComponent implements OnInit {
 
+  public initialDate = '';
+  public initialHour = 12;
+  public hours: number;
+  public reservationAmount: number;
+
   constructor() { }
 
   ngOnInit() {
