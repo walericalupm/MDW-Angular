@@ -1,8 +1,21 @@
-<div>
-  <div>foto</div>
-  <div>Nombre Hotel</div>
-  <div>ubicacion</div>
-  <div>precio hora</div>
-  <div>servicios</div>
-  <div>tipo Habitacion</div>
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <th>Hotel</th>
+      <th>Foto Habitacion</th>
+      <th>Codigo Habitacion</th>
+      <th>Ubicacion</th>
+      <th>Tipo</th>
+      <th>Precio Hora</th>
+    </tr>
+    <tr>
+    <tr *ngFor="let Room of rooms">
+      <td>{{Room.nombreHotel}}</td>
+      <img src="{{Room.fotoHabitacion}}">
+      <td>{{Room.codigoHabitacion}}</td>
+      <td>{{Room.ubicacion}}</td>
+      <td>{{Room.tipoHabitacion}}</td>
+      <td>{{Room.precioHora}}</td>
+    </tr>
+  </table>
 </div>
