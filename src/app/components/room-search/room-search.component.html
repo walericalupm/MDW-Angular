@@ -9,7 +9,7 @@
       <th>Precio Hora</th>
     </tr>
     <tr>
-    <tr *ngFor="let Room of rooms">
+    <tr *ngFor="let Room of rooms; let i = index" routerLink="/{{i}}">
       <td>{{Room.nombreHotel}}</td>
       <img src="{{Room.fotoHabitacion}}">
       <td>{{Room.codigoHabitacion}}</td>
