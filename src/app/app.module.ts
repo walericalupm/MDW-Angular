@@ -9,10 +9,12 @@ import {RoomSearchComponent} from './components/room-search/room-search.componen
 import {HttpService} from './core/http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BookingService} from './services/booking.service';
+import {PaymentGatewayComponent} from './components/payment-gateway/payment-gateway.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PaymentGatewayComponent,
     RoomDetailComponent,
     RoomSearchComponent
   ],
