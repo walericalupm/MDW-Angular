@@ -1,11 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RoomDetailComponent } from './components/room-detail/room-detail.component';
-import { RoomSearchComponent } from './components/room-search/room-search.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {RoomDetailComponent} from './components/room-detail/room-detail.component';
+import {RoomSearchComponent} from './components/room-search/room-search.component';
+import {HttpService} from './core/http.service';
+import {HttpClientModule} from '@angular/common/http';
+import {BookingService} from './services/booking.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,14 @@ import { RoomSearchComponent } from './components/room-search/room-search.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    BookingService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
