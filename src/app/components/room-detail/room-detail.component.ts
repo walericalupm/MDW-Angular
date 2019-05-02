@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {catchError, map, pairwise} from 'rxjs/operators';
 import {RoomService} from 'src/app/services/room.service';
 import Room from 'src/app/models/room';
@@ -22,7 +22,8 @@ export class RoomDetailComponent implements OnInit {
   public initialHour: FormControl;
   public hours: FormControl;
 
-  constructor(private roomService: RoomService, private route: ActivatedRoute, private bookingService: BookingService) {
+  constructor(private roomService: RoomService, private route: ActivatedRoute, private bookingService: BookingService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -83,8 +84,10 @@ export class RoomDetailComponent implements OnInit {
       this.formatDate(this.initialDate.value, this.initialHour.value),
       this.formatDate(this.initialDate.value, this.initialHour.value + this.hours.value)
     ).toPromise()
-      .then(() =>
-        console.log('Se puede hacer la reserva')
+      .then(() => {
+          console.log('Se puede hacer la reserva');
+          this.router.navigate(['./payment-gateway', {hours: this.hours.value}], {relativeTo: this.route});
+        }
       )
       .catch(error => {
         if (error.error === 'BadRequestException') {
